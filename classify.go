@@ -18,7 +18,7 @@ type Term struct {
 
 type Terms []Term
 
-var InvalidCSV = errors.New("Invalid CSV. Expects: Value,Categroy,Weight")
+var InvalidCSV = errors.New("Invalid CSV. Expects: word,category,weight")
 
 func FromCSV(source io.Reader) (Terms, error) {
 
