@@ -80,8 +80,8 @@ func (t Terms) Analyse(text io.Reader) (Results, error) {
 	for _, t := range t {
 		go func(content string, t Term) {
 			defer wg.Done()
-			count := float64(strings.Count(content, t.Word))
-			if count != 0 {
+			count := float64(strings.EqualFold(content, t.Word))
+			if count != false {
 				rs <- Result{t.Category, t.Weight * count}
 			}
 		}(string(content), t)
